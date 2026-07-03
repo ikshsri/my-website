@@ -1,7 +1,276 @@
+/* ---- Our color palette: dark + lavender ---- */
+:root {
+  --bg: #14101F;          /* almost-black purple, main background */
+  --surface: #1E1830;     /* slightly lighter purple, for cards */
+  --lavender: #C9B8F0;    /* soft lavender, for big text & glow */
+  --purple-mid: #8A6FC9;  /* medium purple, for badges/buttons */
+  --purple-deep: #4B3B73; /* deep purple, for borders/accents */
+  --off-white: #F3F0FA;   /* soft white text */
+}
+
+/* ---- Basic page setup ---- */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: -apple-system, sans-serif;
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 20px;
-  color: #222;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--off-white);
+}
+
+/* =========================================================
+   HERO PHOTO SECTION
+   ".hero-photo-wrap" is the "poster." Everything inside it
+   that uses position:absolute floats on top, placed by its
+   distance from the top/bottom/left/right edges.
+========================================================= */
+
+.hero-photo-wrap {
+  position: relative;   /* makes this the "poster" other things stick to */
+  height: 100vh;        /* fill the whole screen height */
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* fills the space without stretching/squishing */
+  object-position: center 20%;
+}
+
+/* A dark gradient laid on top of the photo so white text stays readable */
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 16, 31, 0.75) 0%,
+    rgba(20, 16, 31, 0.25) 35%,
+    rgba(20, 16, 31, 0.55) 70%,
+    rgba(20, 16, 31, 0.95) 100%
+  );
+}
+
+/* ---- Nav bar ---- */
+.navbar {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+}
+
+.logo-pill {
+  background: rgba(20, 16, 31, 0.6);
+  border: 1px solid var(--purple-deep);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.menu-btn {
+  background: rgba(20, 16, 31, 0.6);
+  border: 1px solid var(--purple-deep);
+  color: var(--off-white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* ---- Little "Bay Area, CA" badge ---- */
+.badge {
+  position: absolute;
+  top: 100px;
+  left: 24px;
+  background: rgba(20, 16, 31, 0.6);
+  border: 1px solid var(--purple-deep);
+  color: var(--lavender);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  z-index: 5;
+}
+
+/* ---- Small headline text, upper-left ---- */
+.hero-subhead {
+  position: absolute;
+  top: 150px;
+  left: 24px;
+  max-width: 320px;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  z-index: 5;
+}
+
+/* ---- "Let's Connect" pill button ---- */
+.connect-btn {
+  position: absolute;
+  top: 160px;
+  right: 90px;
+  background: var(--lavender);
+  color: var(--bg);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+}
+
+.connect-arrow {
+  display: inline-block;
+}
+
+/* ---- Vertical email + arrow, far right ---- */
+.side-info {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.side-email {
+  writing-mode: vertical-rl;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: var(--off-white);
+  opacity: 0.8;
+}
+
+.side-arrow {
+  font-size: 1.2rem;
+  color: var(--lavender);
+}
+
+/* ---- Social icon circle(s), lower right ---- */
+.social-stack {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 5;
+}
+
+.social-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(20, 16, 31, 0.6);
+  border: 1px solid var(--purple-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* ---- The giant name across the bottom of the photo ---- */
+.giant-name {
+  position: absolute;
+  bottom: -1.5vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: clamp(4rem, 15vw, 11rem);
+  font-weight: 800;
+  color: var(--off-white);
+  letter-spacing: 2px;
+  z-index: 4;
+  text-align: center;
+  width: 100%;
+}
+
+/* =========================================================
+   INTERESTS SECTION (the card grid)
+========================================================= */
+.interests {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.interests-label {
+  color: var(--lavender);
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.interest-card {
+  background: var(--surface);
+  border: 1px solid var(--purple-deep);
+  border-radius: 12px;
+  padding: 28px 12px;
+  font-weight: 600;
+}
+
+.interest-card--pop {
+  background: linear-gradient(160deg, var(--purple-mid), var(--surface));
+  border-color: var(--lavender);
+}
+
+@media (max-width: 640px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-subhead,
+  .connect-btn {
+    position: static;
+    margin: 90px 24px 0;
+  }
+  .side-info {
+    display: none;
+  }
+}
+
+/* =========================================================
+   ABOUT ME SECTION
+========================================================= */
+.about {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 20px 80px;
+  background-color: var(--surface);
+  border: 1px solid var(--purple-deep);
+  border-radius: 16px;
+}
+
+.about h2 {
+  color: var(--lavender);
+  font-size: 1.8rem;
+  margin-top: 0;
+}
+
+.about p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--off-white);
+}
+
+.highlight {
+  color: var(--lavender);
 }
