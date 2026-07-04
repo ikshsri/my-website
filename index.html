@@ -4,49 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iksh's Website</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="hero-photo-wrap">
+  <header class="hero">
+    <div class="hero-bg-glow"></div>
+
     <nav class="navbar">
-      <div class="logo-pill">🧬 Iksh</div>
-      <button class="menu-btn">☰</button>
+      <div class="nav-pill">
+        <span class="logo-mark">Iksh</span>
+        <span class="nav-divider"></span>
+        <button class="menu-btn" aria-label="Menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
     </nav>
 
-    <img src="images/iksh.jpeg" alt="Photo of Ikshvaku" class="hero-photo">
-    <div class="photo-overlay"></div>
-
-    <p class="badge">● Bay Area, CA</p>
+    <p class="badge">Junior • Bay Area, CA</p>
 
     <p class="hero-subhead">
       High school junior exploring biology<br>
       and figuring out what's next
     </p>
 
-    <a href="mailto:ikshsrikumean@gmail.com" class="connect-btn">
-      <span class="connect-arrow">→</span> Let's Connect
-    </a>
-
-    <div class="side-info">
-      <span class="side-email">ikshsrikumean@gmail.com</span>
-      <span class="side-arrow">↓</span>
-    </div>
-
-    <div class="social-stack">
-      <a href="mailto:ikshsrikumean@gmail.com" class="social-circle" aria-label="Email me">✉️</a>
+    <div class="portrait-slot">
+      <img src="images/iksh-avatar.png" alt="Illustrated avatar of Ikshvaku" class="portrait-photo">
+      <div class="portrait-overlay"></div>
     </div>
 
     <h1 class="giant-name">IKSH</h1>
+
+    <a href="mailto:ikshsrikumean@gmail.com" class="connect-btn">
+      <span class="connect-arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <polyline points="13 5 20 12 13 19"></polyline>
+        </svg>
+      </span>
+      Let's Connect
+    </a>
   </header>
 
   <section class="interests">
-    <p class="interests-label">A few things I love</p>
+    <h2 class="interests-heading">A few things I love</h2>
     <div class="interests-grid">
-      <div class="interest-card">🏀<br>Warriors</div>
-      <div class="interest-card interest-card--pop">🏈<br>49ers</div>
-      <div class="interest-card">🧬<br>Biology</div>
-      <div class="interest-card">🌉<br>Bay Area</div>
+      <div class="interest-card interest-card--large">
+        <span class="interest-label">Biology</span>
+        <span class="interest-detail">Still my favorite rabbit hole</span>
+      </div>
+      <div class="interest-card">
+        <span class="interest-label">Warriors</span>
+      </div>
+      <div class="interest-card">
+        <span class="interest-label">49ers</span>
+      </div>
+      <div class="interest-card interest-card--wide">
+        <span class="interest-label">Bay Area</span>
+        <span class="interest-detail">Born and raised</span>
+      </div>
     </div>
   </section>
 
@@ -54,15 +79,15 @@
     <h2>About Me</h2>
     <p>
       I'm a student going into my junior year, and I'm really into
-      <span class="highlight">biology</span> — I love learning how living
-      things work. I haven't picked one exact path yet, and that's okay —
-      right now I'm just exploring and figuring out what I love most.
+      <span class="highlight">biology</span>. I love learning how living
+      things work. I haven't picked one exact path yet, and that's okay.
+      Right now I'm just exploring and figuring out what I love most.
     </p>
     <p>
       I grew up in the Bay Area, so basketball and football are basically
       in my blood. You'll usually find me cheering for the
       <span class="highlight">Warriors</span> and the
-      <span class="highlight">49ers</span> — win or lose, I'm always Dub
+      <span class="highlight">49ers</span>. Win or lose, I'm always Dub
       Nation.
     </p>
   </section>
